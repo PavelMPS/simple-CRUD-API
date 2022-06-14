@@ -1,0 +1,15 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "This is my first simple CRUD API",
+
+  "devDependencies": {
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "scripts": {
+    "start:prod": "node src/index.js",
+    "start:dev": "nodemon src/index.ts"
+  },
+  "author": "pavelmps"
+}
