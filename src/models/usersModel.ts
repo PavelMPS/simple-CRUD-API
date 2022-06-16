@@ -39,3 +39,13 @@ export function update(id: string, user: User2): Promise<User> {
         resolve(data[index]);
     });
 }
+
+export function remove(id: string): Promise<void> {
+    return new Promise ((resolve, reject) => {
+        const newData = data.filter((user) => {
+            return user.id !== id;
+        })
+        writeDataToFile('./src/data/database.json', newData);
+        resolve();
+    });
+}

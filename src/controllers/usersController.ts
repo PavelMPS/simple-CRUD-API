@@ -1,4 +1,10 @@
-import { findUsers, findUser, create, update } from "../models/usersModel";
+import {
+  findUsers,
+  findUser,
+  create,
+  update,
+  remove,
+} from "../models/usersModel";
 import * as http from "http";
 import { getPostDate } from "../utils";
 import { User, User2 } from "../types";
@@ -60,33 +66,54 @@ export async function createUser(
 }
 
 export async function updateUser(
-    req: http.IncomingMessage,
-    res: http.ServerResponse,
-    id: string
-  ) {
-    try {
-      const user: User = await findUser(id);
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  id: string
+) {
+  try {
+    const user: User = await findUser(id);
 
-      if (!user) {
-        res.writeHead(404, { "Content-type": "application/json" });
-        res.end(JSON.stringify({ message: "User not found" }));
-      } else {
-        const body: string = await getPostDate(req);
-        const { username, age, hobbies } = JSON.parse(body);
-    
-        const userData: User2 = {
-          username: username || user.username,
-          age: age || user.age,
-          hobbies: hobbies || user.hobbies,
-        };
-    
-        const updatingUser = await update(id, userData);
-        res.writeHead(200, { "Content-type": "application/json" });
-        return res.end(JSON.stringify(updatingUser));
-      }
+    if (!user) {
+      res.writeHead(404, { "Content-type": "application/json" });
+      res.end(JSON.stringify({ message: "User not found" }));
+    } else {
+      const body: string = await getPostDate(req);
+      const { username, age, hobbies } = JSON.parse(body);
 
-      
-    } catch (error) {
-      console.log(error);
+      const userData: User2 = {
+        username: username || user.username,
+        age: age || user.age,
+        hobbies: hobbies || user.hobbies,
+      };
+
+      const updatingUser = await update(id, userData);
+      res.writeHead(200, { "Content-type": "application/json" });
+      return res.end(JSON.stringify(updatingUser));
     }
+  } catch (error) {
+    console.log(error);
   }
+}
+
+export async function deleteUser(
+  req: http.IncomingMessage,
+  res: http.ServerResponse,
+  id: string
+): Promise<void> {
+  try {
+    const user = await findUser(id);
+
+    if (!user) {
+      res.writeHead(404, { "Content-type": "application/json" });
+      res.end(JSON.stringify({ message: "User not found" }));
+    } else {
+      await remove(id);
+      res.writeHead(200, { "Content-type": "application/json" });
+      res.end(
+        JSON.stringify({ message: `User ${user.username} was removed!` })
+      );
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
