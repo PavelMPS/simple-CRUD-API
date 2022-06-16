@@ -1,0 +1,1 @@
+{"version":3,"file":"notFoundController.js","sourceRoot":"","sources":["../../src/controllers/notFoundController.ts"],"names":[],"mappings":";;;;;;;;;;;;AAEA,SAAsB,QAAQ,CAAC,GAAyB,EAAE,GAAwB;;QAChF,GAAG,CAAC,SAAS,CAAC,GAAG,EAAE,EAAE,cAAc,EAAE,kBAAkB,EAAE,CAAC,CAAC;QAC3D,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,SAAS,CAAC,EAAE,OAAO,EAAE,wBAAwB,EAAE,CAAC,CAAC,CAAC;IACjE,CAAC;CAAA;AAHD,4BAGC"}
