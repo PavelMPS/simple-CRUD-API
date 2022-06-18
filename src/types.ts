@@ -5,7 +5,7 @@ export type User = {
     hobbies: string[] | [];
   };
 
-  export type User2 = {
+  export type UserBody = {
     username: string;
     age: number;
     hobbies: string[] | [];

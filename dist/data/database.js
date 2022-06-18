@@ -1,3 +1,0 @@
-"use strict";
-[{ "id": "1", "username": "Kolia", "age": 35, "hobbies": ["bicycle", "aquarium", "ping-pong", "swimming"] }, { "id": "2", "username": "Vasya", "age": 30, "hobbies": ["Deutsch", "bubbles-game"] }, { "id": "3", "username": "Vitya", "age": 24, "hobbies": [] }, { "id": "19b0992d-fab6-400a-86b4-521a04839c39", "username": "test", "age": 2, "hobbies": [] }];
-//# sourceMappingURL=database.js.map

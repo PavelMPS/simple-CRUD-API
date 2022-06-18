@@ -1,6 +1,12 @@
 import * as fs from 'fs';
 import * as http from 'http';
 import { User } from './types';
+import { validate as uuidValidate } from "uuid";
+import { version as uuidVersion } from "uuid";
+
+export const uuidValidateV4 = (uuid: string): boolean => {
+    return uuidValidate(uuid) && uuidVersion(uuid) === 4;
+  };
 
 export async function writeDataToFile(filename: string, content: User[]) {
     fs.writeFile(filename, JSON.stringify(content), () => {
@@ -22,4 +28,8 @@ export function getPostDate(req: http.IncomingMessage): Promise<string> {
             reject(error);
         }
     })
+}
+
+export function getId(req: http.IncomingMessage): string {
+    return req.url!.split("/")[3];
 }
