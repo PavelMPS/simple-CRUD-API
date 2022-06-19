@@ -10,7 +10,7 @@ npm run start:prod
 GET api/users 
 
 **Получить пользователя по Id:**
-GET api/users/${userId}
+GET api/users/{userId}
 
 **Создать пользователя :**
 POST api/users
@@ -26,4 +26,4 @@ PUT api/users/{userId}
 
 
 **Удалить пользователя :**
-DELETE api/users/${userId}
+DELETE api/users/{userId}

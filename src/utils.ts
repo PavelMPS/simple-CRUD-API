@@ -9,9 +9,7 @@ export const uuidValidateV4 = (uuid: string): boolean => {
   };
 
 export async function writeDataToFile(filename: string, content: User[]) {
-    fs.writeFile(filename, JSON.stringify(content), () => {
-        console.log('write')
-    });
+    fs.writeFile(filename, JSON.stringify(content), () => {});
 }
 
 export function getPostDate(req: http.IncomingMessage): Promise<string> {
